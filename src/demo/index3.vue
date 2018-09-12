@@ -1,3 +1,4 @@
+
 <template>
   <div :class="'app'">
   <div class="card-scene">
@@ -7,11 +8,11 @@
         drag-handle-selector=".column-drag-handle"
         @drag-start="dragStart"
       >
-        <Draggable v-for="column in scene.children" :key="column.id">
+        <Draggable v-for="column in scene.columns" :key="column.id">
           <div :class="column.props.className">
             <div class="card-column-header">
               <span class="column-drag-handle">&#x2630;</span>
-              <div class="columntitle" contenteditable="true">{{column.name}}</div>
+              {{column.name}} 
             </div>
             <Container 
               group-name="col"
@@ -22,9 +23,11 @@
               drag-class="card-ghost"
               drop-class="card-ghost-drop"
             >
-              <Draggable v-for="card in column.children" :key="card.id">
+              <Draggable v-for="card in scene.columns.cards" :key="card.id">
                 <div :class="card.props.className" :style="card.props.style">
-                  <p><input class="cardinput" type="text" v-model="card.data"></p>
+                  <p contenteditable="true" v-model="newCardData">   
+                    {{card.data}}
+                  </p>
                 </div>
               </Draggable>
             </Container>
@@ -33,51 +36,59 @@
         </Draggable>
       </Container>
     </div>
-    <button class="addColumnButton" @click="addNewColumn()">+</button>
   </div>
 </template>
 
+
+
 <script>
 import { Container, Draggable } from "vue-smooth-dnd";
-import { applyDrag, generateItems } from "./pages/utils";
+import { applyDrag, generateColumnID, generateItems } from "./pages/utils";
 
-var colnum = 0;
-var cardnum = 0;
 
 export default {
+
   name: "Cards",
   components: { Container, Draggable },
-  data: function() {
 
+  data: function() {
     return {
 
-      
+
 
       scene: {
-        type: "container",
-        props: {
-          orientation: "horizontal"
-        },
-        children: generateItems(1, i => ({
-          id: `column` + colnum,
-          type: "container",
-          name: "Title",
-          props: {
-            orientation: "vertical",
-            className: "card-container"
-          },
-          children: generateItems(1, j => ({
-            type: "draggable",
-            id: `${colnum}${cardnum}`,
-            props: {
-              className: "card",
-              style: { backgroundColor: 'white' }
-            },
-            data: 'write something...'
-          }))
-        }))
-      }
+      type: "container",
+      props: {
+        orientation: "horizontal"
+      },
 
+      columns:[{
+
+        
+        column:{
+                id: `column1`,
+                type: "container",
+                name: "Title",
+                props: {
+                  orientation: "vertical",
+                  className: "card-container"
+                },
+                      cards: [{
+
+                        card:{
+                          type: "draggable",
+                                  id: `1`,
+                                  props: {
+                                    className: "card",
+                                    style: { backgroundColor: 'white' }
+                                  },
+                                  data: 'write something...'
+                                }
+                      }]
+              }
+      }],
+      
+      }
     };
   },
 
@@ -123,54 +134,44 @@ export default {
       const column = scene.children.filter(p => p.id === columnId)[0];
       const columnIndex = scene.children.indexOf(column);
 
-      cardnum = cardnum + 1;
+      const newColumn = Object.assign({}, column);
 
       column.children.push(({
 
       type: "draggable",
-      id: `${colnum}${cardnum}`,
+      //id: `${j}`,
       props: {
         className: "card",
         style: { backgroundColor: 'white' }
       },
       data: 'write something...'
-      }))
+      }));
 
     },
-    
-    addNewColumn: function() {
 
-      const scene = Object.assign({}, this.scene);
-      colnum = colnum + 1;
 
-      scene.children.push(({
-
-          
-//          children: generateItems(1, i => ({
-          id: `column` + colnum,
-          type: "container",
-          name: "Title",
-          props: {
-            orientation: "vertical",
-            className: "card-container"
-          },
-          children: generateItems(1, j => ({
-            type: "draggable",
-            id: `${colnum}${cardnum}`,
-            props: {
-              className: "card",
-              style: { backgroundColor: 'white' }
-            },
-            data: 'write something...'
-          }))
-      }))
-    
+   
   }
-  
-}
-}
+};
 
 </script>
 
 
 <style src="../style.css"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

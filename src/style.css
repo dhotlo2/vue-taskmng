@@ -432,6 +432,21 @@ p:hover {
   margin-right: 2%;
 }
 
+.columntitle{
+  display: inline-block;
+}
+.cardinput{
+  width: 100%;
+  border: none;
+  font-size: 14px;  
+}
+.cardinput:hover{
+  cursor: default;
+}
+.cardinput:focus{
+  border: 1px;
+}
+
 input:last-child{
   margin-right: 0;
 }
@@ -446,6 +461,7 @@ input:last-child{
 }
 
 .card-container{
+  display: inline-block;
   border-radius: 5px;
   width: 320px;
   min-height: 100px;
@@ -474,6 +490,7 @@ input:last-child{
 .column-drag-handle{
   cursor: move;
   padding: 5px; 
+  display: inline-block;
 }
 
 .card-ghost {
@@ -506,6 +523,16 @@ input:last-child{
   outline: none;
   border: none;
   padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+.addColumnButton {
+  height: 45px;
+  padding-top: 50px;
+  background: none;
+  outline: none;
+  border: none;
   text-align: center;
   text-decoration: none;
   display: inline-block;
