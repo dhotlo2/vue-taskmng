@@ -137,6 +137,7 @@ export default {
       const columnIndex = scene.children.indexOf(column);
 
       const newColumn = Object.assign({}, column);
+
       column.children.push(({
 
       type: "draggable",
@@ -151,6 +152,8 @@ export default {
     },
 
     addNewCardData(){
+
+
 
       this.card.push({data: this.newCardData});
 
