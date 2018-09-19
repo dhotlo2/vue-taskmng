@@ -70,7 +70,7 @@
                               width="30%"
                               :modalAppendToBody="false">
 
-                              <p><input class="cardinputbig" type="text" v-model="popup"
+                              <p><input class="cardinputbig" type="text" v-model="selected.data"
                                 @keyup.enter="$event.target.blur()"
                                 @dblclick="$event.target.select()"
                                 @mousedown.self.prevent
@@ -78,7 +78,7 @@
                               >
                               </p>
 
-                              <p><textarea class="carddescriptionbig" type="text" v-model="card.carddescription" id="desc-big" > 
+                              <p><textarea class="carddescriptionbig" type="text" v-model="selected.carddescription" id="desc-big" > 
                                 
                               </textarea></p>
 
@@ -130,6 +130,7 @@ export default {
       cardnum: 0,
       username: "John Smith",
       month: "",
+      selected: {},
 
       scene: {
         type: "container",
@@ -180,7 +181,7 @@ export default {
       const cardIndex = column.children.indexOf(card);
 
 
- 
+      this.selected = card;
 
       this.dialogVisible = true;
 
