@@ -63,30 +63,7 @@
                         </textarea></p>
                         <div class="cardmenu">
                           <div class="date"><i class="fa fa-clock-o"></i> Sept</div>
-                          <button class="cardmenuitem"  @click="popup(column.id, card.id)" >&hellip;
-                          </button>
-                           <el-dialog
-                              :visible.sync="dialogVisible"
-                              width="30%"
-                              :modalAppendToBody="false">
-
-                              <p><input class="cardinputbig" type="text" v-model="popup"
-                                @keyup.enter="$event.target.blur()"
-                                @dblclick="$event.target.select()"
-                                @mousedown.self.prevent
-                                id="input-big" 
-                              >
-                              </p>
-
-                              <p><textarea class="carddescriptionbig" type="text" v-model="card.carddescription" id="desc-big" > 
-                                
-                              </textarea></p>
-
-                              <span slot="footer" class="dialog-footer">
-                                <el-button @click="dialogVisible = false">Color Label</el-button>
-                                <el-button @click="popdeletecard(column.id, card.id)">Delete</el-button>
-                              </span>
-                            </el-dialog>
+                          <button class="cardmenuitem" @click="newPopup(column.id, card.id)">&hellip;</button>
                         </div>
                       </div>
                     </div>
@@ -106,25 +83,21 @@
 </template>
 
 <script>
-import Vue from 'vue';
 import { Container, Draggable } from "vue-smooth-dnd";
 import { applyDrag, generateItems } from "./pages/utils";
-import Element from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
+import swal from 'sweetalert';
+import inputtest from './inputtest';
 
-Vue.use(Element);
 
 export default {
-
   name: "Cards",
-  components: { Container, Draggable },
+  components: { Container, Draggable, inputtest },
 
 
   data: function() {
 
     return {
 
-      dialogVisible: false,
       boardnum: 0,
       colnum: 0,
       cardnum: 0,
@@ -163,57 +136,7 @@ export default {
 
   methods: {
 
-    // handleClose: function(done) {
-
-    // this.$confirm('Are you sure to close this dialog?')
-    // .then(_ => {
-    //   done();
-    // })
-    // .catch(_ => {});
-    // },
-
-    popup: function(columnId, cardId){
-
-      const scene = Object.assign({}, this.scene);
-      const column = scene.children.filter(p => p.id === columnId)[0];
-      const card = column.children.filter(p => p.id === cardId)[0];
-      const cardIndex = column.children.indexOf(card);
-
-
- 
-
-      this.dialogVisible = true;
-
-
-        //    document.getElementById('input-big').value = card.data;
-
-
-      console.log(card.data, cardId);
-
-      console.log(document.getElementById('input-big'));
-
-
-    },
-
-    popdeletecard: function(columnId, cardId){
-
-      return new Promise((resolve) => {
-
-      const scene = Object.assign({}, this.scene);
-      const column = scene.children.filter(p => p.id === columnId)[0];
-      const card = column.children.filter(p => p.id === cardId)[0];
-      const cardIndex = column.children.indexOf(card);
-      console.log(cardIndex);
-
-      column.children.splice(card);
-
-      this.dialogVisible = false;
-
-      resolve();
-
-    })},
-
-    newpopup: function(columnId, cardId){
+    newPopup: function(columnId, cardId){
 
       const scene = Object.assign({}, this.scene);
       const column = scene.children.filter(p => p.id === columnId)[0];
@@ -419,23 +342,6 @@ export default {
         carddescription: 'Description'
         }));
 
-      // const thiscardelement = column.children[column.children.length - 1];
-
-      // const cardelements = Object.values(thiscardelement);
-
-      // const cardfather = cardelements[0];
-
-      // console.log(cardfather);
-
-      // const columnelement = cardfather.parentElement;
-
-      //       console.log(columnelement);
-
-
-      // columnelement.scrollBy(0,150);
-
-
-
       //Scroll down to the element you just made, doesn't work because push insert an object into array not element
       //
       // const thiscardelement = column.children[column.children.length - 1];
@@ -490,7 +396,6 @@ export default {
 
     },
 
-
     watch: {
 
       scene: {
@@ -530,15 +435,6 @@ export default {
 
 
 <style>
-
-.el-dialog__body{
-  padding-top: 0;
-  padding-bottom: 0;
-}
-.el-dialog__header{
-  padding:0;
-  padding-bottom: 10px;
-}
 
 .swal-button{
   padding: 7px 19px;
