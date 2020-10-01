@@ -238,6 +238,7 @@
             :key="scene.id"
             drag-handle-selector=".card-column-header"
             v-dragscroll:nochilddrag
+            id="fullboard"
           >
             <Draggable data-dragscroll v-for="column in scene.children" :key="column.id">
               <div data-dragscroll :class="column.props.className" >
@@ -1523,6 +1524,11 @@ export default {
       //   this.istheme();
       // });
       this.saveuserdata();
+
+      setTimeout(function(){
+        const board = document.getElementById("fullboard");
+        board.scrollLeft = 5000;
+      }, 100);
     }
     
   },
