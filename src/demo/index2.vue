@@ -145,7 +145,384 @@ export default {
    
   }
 };
+// if (userexists) {
+
+      //   console.log('user does exist and fetching data');
+
+      //   console.log('userexists =', userexists);
+
+      //   gboards.once('value', (boards) => {
+      //     boards.forEach((board) => {
+            
+      //       this.boards.push({
+      //         ref: board.ref,
+      //         data: board.child('data').val(),
+      //         id: board.child('id').val()
+      //       })
+      //       this.alldata.currentselectedboard = this.boards[this.boards.length - 1];
+      //       console.log(this.boards);
+      //     })
+      //   });
+
+
+      //   this.alldata.allBoards.push({
+
+      //   type: "container",
+      //   id: 'scene' + this.alldata.scenenum,
+      //   props: {
+      //     orientation: "horizontal",
+      //   },
+
+      //   children: generateItems(1, i => ({
+
+      //     id: this.alldata.scenenum + `column` + this.alldata.colnum,
+      //     type: "container",
+      //     name: "Title",
+      //     props: {
+      //       orientation: "vertical",
+      //       className: "card-container"
+      //     },
+      //     children: generateItems(1, j => ({
+      //       type: "draggable",
+      //       id: `${this.alldata.scenenum}${this.alldata.colnum}${this.alldata.cardnum}`,
+      //       props: {
+      //         className: "card",
+      //         labelstyle: { backgroundColor: 'transparent' }
+      //       },
+      //       data: 'Card title',
+      //       carddescription: 'Write something...',
+      //       showcheckbox: false,
+      //       check: [],
+      //       checkdone: [],
+      //       percentage: 0
+      //     }))}))}),
+
+      //       /////////// most current ////////////////
+      //       galldata.once('value')
+      //       .then(res => {
+      //         return res.val();
+      //       })
+      //       .then(newdata => {
+
+      //         console.log(newdata);
+      //         console.log(this.alldata);
+
+      //         this.alldata = newdata;
+              
+      //         console.log(newdata);
+      //         console.log(this.alldata);
+      //       })
+      //       //////////////////////////////////////////
+
+
+      //       /////////// most current ////////////////
+      //       gscene.once('value')
+      //         .then(nu => {
+      //           return nu.val();
+      //         })
+      //         .then(newscene => {
+                
+      //           this.scene = newscene;
+
+      //           // this.scene = newscene;
+      //           console.log('inside fetching gscene from db', this.scene);
+      //         })
+      //       //////////////////////////////////////////
+      //       // const thisboard = this.alldata.allBoards.filter(a => a.id === ('scene' + this.alldata.currentselectedboard.id))[0];
+      //       // const boarditem = this.boards.filter(a => a.id === (this.alldata.currentselectedboard.id))[0];
+
+      //       // this.alldata.currentselectedboard = boarditem;
+      //       // this.scene = thisboard;
+      // }else{
+
+      //   console.log('user logged in, but no db data');
+      //   console.log('load new db data');
+
+      //   this.boards.push({ data: 'New board', id: this.alldata.scenenum });
+
+      //   this.alldata.currentselectedboard = this.boards[0];
+
+      //   ///////////////
+
+      //   this.alldata.allBoards.push({
+
+      //   type: "container",
+      //   id: 'scene' + this.alldata.scenenum,
+      //   props: {
+      //     orientation: "horizontal",
+      //   },
+
+      //   children: generateItems(1, i => ({
+
+      //     id: this.alldata.scenenum + `column` + this.alldata.colnum,
+      //     type: "container",
+      //     name: "Title",
+      //     props: {
+      //       orientation: "vertical",
+      //       className: "card-container"
+      //     },
+      //     children: generateItems(1, j => ({
+      //       type: "draggable",
+      //       id: `${this.alldata.scenenum}${this.alldata.colnum}${this.alldata.cardnum}`,
+      //       props: {
+      //         className: "card",
+      //         labelstyle: { backgroundColor: 'transparent' }
+      //       },
+      //       data: 'Card title',
+      //       carddescription: 'Write something...',
+      //       showcheckbox: false,
+      //       check: [],
+      //       checkdone: [],
+      //       percentage: 0
+      //     }))}))}),
+            
+
+
+
+      //       this.scene = this.alldata.allBoards[this.alldata.allBoards.length -1];
+
+      //       // this.saveuserdata();
+
+
+      //       // const thisboard = this.alldata.allBoards.filter(a => a.id === ('scene' + this.alldata.currentselectedboard.id))[0];
+      //       // const boarditem = this.boards.filter(a => a.id === (this.alldata.currentselectedboard.id))[0];
+
+      //       // this.alldata.currentselectedboard = boarditem;
+      //       // this.scene = thisboard;
+
+
+
+      // }
+      // this.boards.push({ data: "", id: null });
+
+    //   this.alldata.currentselectedboard = this.boards[0];
+
+    //   ///////////////
+
+    //   this.alldata.allBoards.push({
+
+    //   type: "container",
+    //   id: null,
+    //   props: {
+    //     orientation: "horizontal",
+    //   },
+
+    //   children: generateItems(1, i => ({
+
+    //     id: null,
+    //     type: "container",
+    //     name: "",
+    //     props: {
+    //       orientation: "vertical",
+    //       className: "card-container"
+    //     },
+    //     children: generateItems(1, j => ({
+    //       type: "draggable",
+    //       id: null,
+    //       props: {
+    //         className: "card",
+    //         labelstyle: { backgroundColor: 'transparent' }
+    //       },
+    //       data: "",
+    //       carddescription: "",
+    //       showcheckbox: false,
+    //       check: [],
+    //       checkdone: [],
+    //       percentage: null
+    //     }))}))}),
+    
+    // this.scene = this.alldata.allBoards[this.alldata.allBoards.length -1];
+
+    //   this.boards.push({ data: 'New board', id: this.alldata.scenenum });
+
+    //   this.alldata.currentselectedboard = this.boards[0];
+
+    //   ///////////////
+
+    //   this.alldata.allBoards.push({
+
+    //   type: "container",
+    //   id: 'scene' + this.alldata.scenenum,
+    //   props: {
+    //     orientation: "horizontal",
+    //   },
+
+    //   children: generateItems(1, i => ({
+
+    //     id: this.alldata.scenenum + `column` + this.alldata.colnum,
+    //     type: "container",
+    //     name: "Title",
+    //     props: {
+    //       orientation: "vertical",
+    //       className: "card-container"
+    //     },
+    //     children: generateItems(1, j => ({
+    //       type: "draggable",
+    //       id: `${this.alldata.scenenum}${this.alldata.colnum}${this.alldata.cardnum}`,
+    //       props: {
+    //         className: "card",
+    //         labelstyle: { backgroundColor: 'transparent' }
+    //       },
+    //       data: 'Card title',
+    //       carddescription: 'Write something...',
+    //       showcheckbox: false,
+    //       check: [],
+    //       checkdone: [],
+    //       percentage: 0
+    //     }))}))}),
+    
+    // this.scene = this.alldata.allBoards[this.alldata.allBoards.length -1];
+
+
+
+
+
+
+      // if (localStorage.getItem('boards')) this.boards = JSON.parse(localStorage.getItem('boards'));
+      // if (localStorage.getItem('alldata')) this.alldata = JSON.parse(localStorage.getItem('alldata'));
+      // if (localStorage.getItem('scene')) this.scene = JSON.parse(localStorage.getItem('scene'));
+
+      // const gboards = db.ref(firebase.auth().currentUser.uid + '/boards/');
+      // const gscene = db.ref(firebase.auth().currentUser.uid + '/scene/');
+      // const galldata = db.ref(firebase.auth().currentUser.uid + '/alldata/');
+
+      // if(nouserloggedin ==  false){
+      //   console.log('no user logged in');
+      //   console.log("this.currentselectedboard array is empty");
+
+      //   this.boards.push({ data: 'New board', id: this.alldata.scenenum });
+
+      //   this.alldata.currentselectedboard = this.boards[0];
+
+      //   ///////////////
+
+      //   this.alldata.allBoards.push({
+
+      //   type: "container",
+      //   id: 'scene' + this.alldata.scenenum,
+      //   props: {
+      //     orientation: "horizontal",
+      //   },
+
+      //   children: generateItems(1, i => ({
+
+      //     id: this.alldata.scenenum + `column` + this.alldata.colnum,
+      //     type: "container",
+      //     name: "Title",
+      //     props: {
+      //       orientation: "vertical",
+      //       className: "card-container"
+      //     },
+      //     children: generateItems(1, j => ({
+      //       type: "draggable",
+      //       id: `${this.alldata.scenenum}${this.alldata.colnum}${this.alldata.cardnum}`,
+      //       props: {
+      //         className: "card",
+      //         labelstyle: { backgroundColor: 'transparent' }
+      //       },
+      //       data: 'Card title',
+      //       carddescription: 'Write something...',
+      //       showcheckbox: false,
+      //       check: [],
+      //       checkdone: [],
+      //       percentage: 0
+      //     }))}))}),
+      
+      // this.scene = this.alldata.allBoards[this.alldata.allBoards.length -1];
+
+      // ///////////////
+
+      // };
+      
+
+      // const thisboard = this.alldata.allBoards.filter(a => a.id === ('scene' + this.alldata.currentselectedboard.id))[0];
+      // const boarditem = this.boards.filter(a => a.id === (this.alldata.currentselectedboard.id))[0];
+
+      // this.alldata.currentselectedboard = boarditem;
+      // this.scene = thisboard;
+
+    //   if(!Array.isArray(galldata.allBoards) || !galldata.allBoards.length){
+
+    //     console.log("allboards array is empty");
+
+    //   this.alldata.allBoards.push({
+
+    //     type: "container",
+    //     id: 'scene' + this.alldata.scenenum,
+    //     props: {
+    //       orientation: "horizontal",
+    //     },
+
+    //     children: generateItems(1, i => ({
+
+    //       id: this.alldata.scenenum + `column` + this.alldata.colnum,
+    //       type: "container",
+    //       name: "Title",
+    //       props: {
+    //         orientation: "vertical",
+    //         className: "card-container"
+    //       },
+    //       children: generateItems(1, j => ({
+    //         type: "draggable",
+    //         id: `${this.alldata.scenenum}${this.alldata.colnum}${this.alldata.cardnum}`,
+    //         props: {
+    //           className: "card",
+    //           labelstyle: { backgroundColor: 'transparent' }
+    //         },
+    //         data: 'Card title',
+    //         carddescription: 'Write something...',
+    //         showcheckbox: false,
+    //         check: [],
+    //         checkdone: [],
+    //         percentage: 0
+    //       }))}))}),
+      
+    //   this.scene = this.alldata.allBoards[this.alldata.allBoards.length -1];
+
+    // };
+
+      // const thisboard = this.alldata.allBoards.filter(a => a.id === ('scene' + this.alldata.currentselectedboard.id))[0];
+      // const boarditem = this.boards.filter(a => a.id === (this.alldata.currentselectedboard.id))[0];
+
+      // this.alldata.currentselectedboard = boarditem;
+      // this.scene = thisboard;
+
+
+
+
+
+
+      // watch: {
+
+    //   boards: {
+    //     handler() {
+    //       console.log('boards changed!');
+    //       // localStorage.setItem('boards', JSON.stringify(this.boards));
+    //       db.ref(firebase.auth().currentUser.uid + '/boards/').set(this.boards);
+    //     },
+    //     deep: true,
+    //   },
+
+    //   scene: {
+    //     handler() {
+    //       console.log('Scene changed!');
+    //       // localStorage.setItem('scene', JSON.stringify(this.scene));
+    //       db.ref(firebase.auth().currentUser.uid + '/scene/').set(this.scene);
+    //     },
+    //     deep: true,
+    //   },
+    //   alldata: {
+    //     handler() {
+    //       console.log('alldata changed!');
+    //       // localStorage.setItem('alldata', JSON.stringify(this.alldata));
+    //       db.ref(firebase.auth().currentUser.uid + '/alldata/').set(this.alldata);
+    //     },
+    //     deep: true,
+    //   },
+
+    // }
 </script>
 
 
 <style src="../style.css"/>
+

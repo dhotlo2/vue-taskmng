@@ -1,0 +1,14 @@
+// {
+//   "rules": {
+//     ".read": "auth != null",
+//     ".write": "auth != null"
+//   }
+// }
+{
+  "rules": {
+      "$uid": {
+        ".read": "$uid === auth.uid",
+        ".write": "$uid === auth.uid"
+      }
+  }
+}

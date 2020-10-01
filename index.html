@@ -2,15 +2,39 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     
     <link rel="stylesheet" type="text/css" src="../style.css">
-    <title>tasker</title>
-    <base href="/vue-smooth-dnd/">
+    <title>Kevvlar</title>
+    <!-- <base href="/vue-smooth-dnd/"> -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-60495370-6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-60495370-6');
+    </script>
   </head>
   <body>
     <div id="app"></div>
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      // authDomain: "taskmngr-7f5f2.firebaseapp.com"
+      var config = {
+        apiKey: "AIzaSyAGH8vlz1YzLn5jqyJFaFIQsQILo4jGf0w",
+        authDomain: "taskmngr-7f5f2.firebaseapp.com",
+        databaseURL: "https://taskmngr-7f5f2.firebaseio.com",
+        projectId: "taskmngr-7f5f2",
+        storageBucket: "taskmngr-7f5f2.appspot.com",
+        messagingSenderId: "719985560993"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script src="https://apis.google.com/js/api:client.js"></script>
   </body>
 </html>
