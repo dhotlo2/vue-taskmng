@@ -150,7 +150,7 @@
 
           <span slot="footer" class="dialog-footer">
             <!-- <el-button disabled>Link</el-button> -->
-            <el-button style="backgroundColor: transparent; color:none; border: none" >
+            <el-button style="backgroundColor: transparent; color:none; border: none; padding-right:0px !important" >
               <el-date-picker
                 v-model="alldata.selectedCard.duedate"
                 type="date"
@@ -201,14 +201,14 @@
         <p class="colnumStore" v-model="alldata.colnum"></p>
         <p class="cardnumStore" v-model="alldata.cardnum"></p>
         <div class="rightNav" id="right-nav">
-          <!-- <div class="menutitle">
+          <div class="menutitle">
             <p>{{ this.alldata.currentselectedboard.data }}</p>
             <button class="boardMenuItem"  @click="boardpopup" >
               <i class="el-icon-more"></i>
             </button>
             <button class="menusizebutton" @click="cardSizeBig"><i class="el-icon-menu"></i></button>
             <button class="menusizebutton" @click="cardSizeSmall"><i class="el-icon-minus"></i></button>
-          </div> -->
+          </div>
           <!-- <div class="menuoptions">
             <button class="menusizebutton" @click="cardSizeBig"><i class="el-icon-menu"></i></button>
             <button class="menusizebutton" @click="cardSizeSmall"><i class="el-icon-minus"></i></button>
@@ -1496,6 +1496,9 @@ export default {
       // this.$nextTick(() => {
       //   this.istheme();
       // });
+      if (this.cardSize == false) {
+        this.cardSizeSmall();
+      }
       this.saveuserdata();
     },
     
